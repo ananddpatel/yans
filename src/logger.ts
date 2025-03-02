@@ -1,6 +1,6 @@
-import winston from "winston";
 import { DateTime } from "luxon";
 import { resolve } from "path";
+import winston from "winston";
 
 const formatFn = (info: any) =>
   `${DateTime.now().toFormat("yyyy-MM-dd HH:mm:ss.SSS")} ${info.level}: [${info.label}] ${info.message}`;
@@ -17,7 +17,7 @@ const createLogger = (label: string) =>
           winston.format.colorize(),
           winston.format.timestamp(),
           winston.format.align(),
-          winston.format.printf(formatFn),
+          winston.format.printf(formatFn)
         ),
       }),
       new winston.transports.File({
@@ -28,10 +28,10 @@ const createLogger = (label: string) =>
           winston.format.label({ label }),
           winston.format.timestamp(),
           winston.format.align(),
-          winston.format.printf(formatFn),
+          winston.format.printf(formatFn)
         ),
       }),
     ],
   });
 
-export const logger = createLogger("Muroto");
+export const logger = createLogger("Yans");
