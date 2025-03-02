@@ -1,0 +1,7 @@
+{
+  "include": [
+    "src"
+  ],
+  "ext": "ts",
+  "exec": "npm run migrate-dev && ts-node src/index.ts"
+}
