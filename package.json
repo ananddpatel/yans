@@ -7,10 +7,12 @@
     "start": "nodemon",
     "build": "tsc",
     "prod": "node dist/index.js",
-    "test": "jest --watch",
+    "test": "npm run migrate-test && APPENV=test jest",
+    "test-watch": "npm run migrate-test && APPENV=test jest --watch",
     "playground": "nodemon --config nodemon-playground.json",
     "migrate-dev": "knex migrate:latest --cwd . --knexfile ./knexfile.ts --env development",
-    "migrate-prod": "knex migrate:latest --cwd . --knexfile ./knexfile.ts --env production"
+    "migrate-prod": "knex migrate:latest --cwd . --knexfile ./knexfile.ts --env production",
+    "migrate-test": "knex migrate:latest --cwd . --knexfile ./knexfile.ts --env test"
   },
   "author": "",
   "license": "ISC",
